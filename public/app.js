@@ -3,19 +3,58 @@ console.log('It is alive');
 build();
 
 function build() {
+
+    //Creates sidebar, Change into function
     const divSidebar = document.createElement('div');
     divSidebar.setAttribute('id', 'sidebar');
-    divSidebar.className = 'container';
+    divSidebar.className = 'container w-25 vh-100 float-start bg-info border border-3 rounded-end';
     app.appendChild(divSidebar);
- const divDropdown = document.createElement('div');
+    
+
+    //Button for home
+    const divColumnHead = document.createElement('div');
+    divColumnHead.className = 'd-flex flex-column mt-2'; //To see what is where
+    divSidebar.appendChild(divColumnHead);
+
+    const sidebarHead = document.createElement('button');
+    sidebarHead.setAttribute('type', 'button');
+    sidebarHead.className = 'btn border-0';
+    sidebarHead.innerHTML = '<h1>HOME</h1>';
+    divColumnHead.appendChild(sidebarHead);
+
+
+
+    //Button for About Me
+    const divColumnTop = document.createElement('div');
+    divColumnTop.className = 'd-flex flex-column p-2 mt-3 float-start';
+    divSidebar.appendChild(divColumnTop);
+
+    const aboutMeBtn = document.createElement('button');
+    aboutMeBtn.setAttribute('type', 'button');
+    aboutMeBtn.innerHTML = 'About me';
+    aboutMeBtn.className = 'btn border-0';
+    divColumnTop.appendChild(aboutMeBtn);
+
+    /* forces next column to break to new line, make a function of it?
+    const columnBreak = document.createElement('div');
+    columnBreak.className = 'w-100';
+    divColumnTop.appendChild(columnBreak); */
+
+    //Dropdown menu for My Experience
+    const divColumnMid = document.createElement('div');
+    divColumnMid.className = 'd-flex flex-column p-2 mt-3 float-start'; //To see what is where
+    divSidebar.appendChild(divColumnMid);
+
+    const divDropdown = document.createElement('div');
     divDropdown.className = 'dropdown';
-    divSidebar.appendChild(divDropdown);
+    divColumnMid.appendChild(divDropdown);
 
     const dropdownBtn = document.createElement('button');
-    dropdownBtn.className = 'btn btn-secondary dropdown-toggle';
+    dropdownBtn.className = 'btn border-0 dropdown-toggle';
     dropdownBtn.setAttribute('type', 'button');
     dropdownBtn.setAttribute('data-bs-toggle', 'dropdown')
-    dropdownBtn.innerHTML = 'About Me';
+    dropdownBtn.setAttribute('data-bs-auto-close', 'false');
+    dropdownBtn.innerHTML = 'My Experience';
     //dropdownBtn.setAttribute('aria-expanded', 'false');   vet inte om funkar
     divDropdown.appendChild(dropdownBtn);
 
@@ -29,36 +68,31 @@ function build() {
     const dropdownItemA = document.createElement('button');
     dropdownItemA.className = 'dropdown-item';
     dropdownItemA.setAttribute('type', 'button');
-    dropdownItemA.innerHTML = 'Action';
+    dropdownItemA.innerHTML = 'Education';
     dropdownList.appendChild(dropdownItemA);
 
     const dropdownItemB = document.createElement('button');
     dropdownItemB.className = 'dropdown-item';
     dropdownItemB.setAttribute('type', 'button');
-    dropdownItemB.innerHTML = 'Not Action';
+    dropdownItemB.innerHTML = 'Work Experience';
     dropdownList.appendChild(dropdownItemB);
-
     
 
+    const divColumnBot = document.createElement('div');
+    divColumnBot.className = 'd-flex flex-column p-2 mt-3 float-start';
+    divSidebar.appendChild(divColumnBot);
 
-
-    /*
-    <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown
-  </button>
-  <ul class="dropdown-menu">
-    <li><button class="dropdown-item" type="button">Action</button></li>
-    <li><button class="dropdown-item" type="button">Another action</button></li>
-    <li><button class="dropdown-item" type="button">Something else here</button></li>
-  </ul>
-</div>
-    */
-    
+    const contactBtn = document.createElement('button');
+    contactBtn.setAttribute('type', 'button');
+    contactBtn.className = 'btn border-0';
+    contactBtn.innerHTML = 'Contact';
+    divColumnBot.appendChild(contactBtn);
 
 
 
-    //Test för sidebar dropdown collapse
+
+
+    //Test for sidebar dropdown collapse
    /* const dropdown = document.createElement('div');
     dropdown.className = 'collapse';
     dropdown.setAttribute('id', 'collapseExample');
