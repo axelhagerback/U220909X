@@ -7,12 +7,12 @@ function build() {
     //Creates sidebar, Change into function
     const divSidebar = document.createElement('div');
     divSidebar.setAttribute('id', 'sidebar');
-    divSidebar.className = 'container w-25 vh-100 float-start bg-primary border-end border-3';
+    divSidebar.className = 'container w-25 vh-100 position-fixed float-start bg-info border-end border-dark border-3';
     app.appendChild(divSidebar);
 
     const divContent = document.createElement('div');
     divContent.setAttribute('id', 'content');
-    divContent.className = 'container w-75 vh-100 float-end bg-info';
+    divContent.className = 'container vh-100 w-75 float-end';
     app.appendChild(divContent);
     
     buildSidebar(divSidebar);
@@ -42,7 +42,7 @@ divSidebar.appendChild(divColumnTop);
 
 const aboutMeBtn = document.createElement('button');
 aboutMeBtn.setAttribute('type', 'button');
-aboutMeBtn.innerHTML = '<h5>About me</h5>';
+aboutMeBtn.innerHTML = '<h5>About Me</h5>';
 aboutMeBtn.className = 'btn border-0';
 divColumnTop.appendChild(aboutMeBtn);
 
@@ -88,7 +88,7 @@ dropdownItemB.setAttribute('type', 'button');
 dropdownItemB.innerHTML = 'Work Experience';
 dropdownList.appendChild(dropdownItemB);
 
-
+//Button for contact
 const divColumnBot = document.createElement('div');
 divColumnBot.className = 'col-12 p-2 mt-3 float-start text-center';
 divSidebar.appendChild(divColumnBot);
@@ -100,9 +100,23 @@ contactBtn.innerHTML = '<h5>Contact</h5>';
 divColumnBot.appendChild(contactBtn);
 
 
+//div for two icons
+const iconRow = document.createElement('div');
+iconRow.className = 'position-absolute bottom-0 start-0';
+divSidebar.appendChild(iconRow);
+
+const gitHubBtn = document.createElement('h1');
+gitHubBtn.className = 'bi bi-github float-start';
+iconRow.appendChild(gitHubBtn);
+
+const linkedIn = document.createElement('h1');
+linkedIn.className = 'bi bi-linkedin float-start';
+iconRow.appendChild(linkedIn);
+
+
+
 
 //Test for sidebar dropdown collapse
-
 /* const dropdown = document.createElement('div');
 dropdown.className = 'collapse';
 dropdown.setAttribute('id', 'collapseExample');
@@ -133,24 +147,34 @@ aboutMe.setAttribute('role', 'button');
 aboutMe.setAttribute('aria-expanded', 'false');
 aboutMe.setAttribute('aria-controls', 'collapseExample');
 divSidebar.appendChild(aboutMe); 
-
-
 */
 }
 
 function buildContent(divContent) {
 
+    //div for main content
     const mainContent = document.createElement('div');
-    mainContent.className = 'container w-75 h-50 mx-auto mt-5 bg-info border border-3';
+    mainContent.className = 'container bg-info w-75 h-50 mx-auto mt-5 rounded-4';
     divContent.appendChild(mainContent);
 
+    
     const textContent = document.createElement('p');
-    textContent.className = 'float-start w-50 pt-2 pe-2';
+    textContent.className = 'float-start w-50 pt-2 pe-4';
     textContent.innerHTML = '<h2>Axel Hägerbäck</h2><br>'+
     'Welcome, to my personal site!<br>' +
     'Explore the different pages to find out who I am as a person, what experience I have and what my goals are.<br>' +
-    'Feel free to contact me using any method on the contact pagee.';
+    'Feel free to contact me using any method on the contact page.';
     mainContent.appendChild(textContent);
 
+    //Picture of me
+    const image = document.createElement('img');
+    image.className = 'float-end w-50 h-100 rounded-3';
+    image.setAttribute('src', 'mig_själv.jpg');
+    image.setAttribute('alt', 'Picture of myself');
+    mainContent.appendChild(image);
+
+
+    
+    
 
 }
