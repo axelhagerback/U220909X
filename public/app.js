@@ -174,7 +174,22 @@ function buildContent(divContent) {
     mainContent.appendChild(image);
 
 
-    
+    //div for the two information boxes
+    const infoBoxes = document.createElement('div');
+    infoBoxes.className = 'container w-100 h-50 mt-4 row justify-content-evenly';
+    divContent.appendChild(infoBoxes);
+
+    const leftInfoBox = document.createElement('p');
+    leftInfoBox.className ='bg-info w-25 h-75 p-2 border border-dark rounded-4';
+    leftInfoBox.innerHTML = 'My name is Axel Hägerbäck and I live in Stockholm. I am 18 years old and graduated the summer of 2022 from the technology program at Östra gymnasiet <br>' +
+    '<br>Go to About Me to see more about who I am!';
+    infoBoxes.appendChild(leftInfoBox);
+
+    const rightInfoBox = document.createElement('p');
+    rightInfoBox.className = 'bg-info w-25 h-75 p-2 border border-dark rounded-4';
+    rightInfoBox.innerHTML = 'I went to school at Östra gymnasiet and now studying to become a high school engineer. I have also worked as a tennis coach for three years.<br>' +
+    '<br>Go to My Experience to see more about what I have done!';
+    infoBoxes.appendChild(rightInfoBox);
     
 
 }
